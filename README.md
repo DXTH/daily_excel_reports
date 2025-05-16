@@ -43,6 +43,8 @@ excel-reports cli --help
 ```bash
 # Start the web interface
 excel-reports web
+# Or
+poetry run streamlit run src/web.py
 ```
 
 Then open your browser to http://localhost:8501
