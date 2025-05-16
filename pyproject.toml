@@ -1,0 +1,64 @@
+[tool.poetry]
+name = "daily-excel-reports"
+version = "0.1.0"
+description = "A modular system for processing Excel and CSV files with robust error handling and concurrent processing"
+authors = ["Denys Harkavenko <dxth63@gmail.com>"]
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+streamlit = "^1.45.1"
+pandas = "^2.2.3"
+numpy = "^2.2.5"
+pyyaml = "^6.0.2"
+pytest = "^8.3.5"
+openpyxl = "^3.1.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+excel-reports = "src.__main__:main"
+
+[tool.ruff]
+line-length = 80
+indent-width = 4
+target-version = "py311"
+fix = true
+exclude = [
+    ".venv",
+    "dist",
+    "build",
+    "*.pyc",
+    "*.pyo",
+    "*.pyd",
+    "*.pyw",
+    "*/tests/*",
+    "web.py"
+]
+
+[tool.ruff.lint]
+select = ["ALL"]
+extend-ignore = [
+    "D",
+    "N", 
+    "PL",
+    "E501",
+    "D203",
+    "T201",
+    "PD901",
+    "G004",
+    "TRY300",    
+]
+fixable = ["ALL"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 5
